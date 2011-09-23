@@ -30,7 +30,7 @@ Specify an gem to search:
   end
 
   option('--do_not_copy', '-d') do
-    description 'Do not copy bundle line to clipboard.'
+    description 'Do not copy Gemfile line to clipboard.'
     attribute
   end
 

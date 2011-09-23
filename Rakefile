@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "cpgem"
   gem.homepage = "http://github.com/zigotto/cpgem"
   gem.license = "MIT"
-  gem.summary = %Q{Copy bundler line to clipboard}
-  gem.description = %Q{Copy bundler line to clipboard}
+  gem.summary = %Q{Copy Gemfile line to clipboard}
+  gem.description = %Q{Copy Gemfile line to clipboard}
   gem.email = "jlopes@zigotto.com.br"
   gem.authors = ["Jesus Lopes"]
   # dependencies defined in Gemfile

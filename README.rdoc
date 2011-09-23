@@ -1,6 +1,6 @@
 = cpgem
 
-Copy bundle line to clipboard
+Copy Gemfile line to clipboard
 
 == Basic Usage
 
