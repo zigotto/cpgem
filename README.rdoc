@@ -14,7 +14,7 @@ Copy Gemfile line to clipboard
   804 for this version
   homepage: http://github.com/zigotto/googl
 
-Type the Command+C in your Gemfile and have fun :)
+Type the Command+V in your Gemfile and have fun :)
 
 == Installation
 
