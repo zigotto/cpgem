@@ -1,0 +1,77 @@
+#!/usr/bin/env ruby
+
+# coding: utf-8
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+
+require 'cpgem'
+require 'main'
+require 'gems'
+require 'clipboard'
+
+Main do
+  description <<-__
+cpgem power!
+  __
+
+  examples <<-__
+Start the search:
+
+  cpgem
+
+Specify an gem to search:
+
+  cpgem googl
+  __
+
+  argument("gem") do
+    required
+    description "Specifies an gem for search."
+    attribute
+  end
+
+  option('--do_not_copy', '-d') do
+    description 'Do not copy bundle line to clipboard.'
+    attribute
+  end
+
+  def run
+
+    info = Gems.info(params["gem"].value)
+    unless info
+      puts "Gem not found :("
+      exit_warn!
+    else
+
+      bundler       = %@gem "#{info["name"]}", "~> #{info["version"]}"@
+      bundler_line  = "bundler: #{bundler}"
+      install       = %@install: gem install #{info["name"]}@
+      homepage      = "homepage: #{info["homepage_uri"]}"
+      name          = "name: #{info["name"]}"
+      version       = "version: #{info["version"]}"
+      downloads     = "#{info["downloads"]} downloads"
+      version_downloads = "#{info["version_downloads"]} for this version"
+      homepage      = "homepage: #{info["homepage_uri"]}"
+
+      unless do_not_copy?
+        Clipboard.copy(bundler)
+      end
+
+      message = \
+        "#{bundler_line}\n" +
+        "#{install}\n" +
+        "#{name}\n" +
+        "#{version}\n" +
+        "#{downloads}\n" +
+        "#{version_downloads}\n" +
+        "#{homepage}"
+
+      puts message
+
+    end
+
+  rescue Exception => err
+    abort("<#{err.class.name}> #{err.message}\n\t" +
+          err.backtrace.join("\n\t"))
+  end
+
+end
