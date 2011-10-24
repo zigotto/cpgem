@@ -5,7 +5,6 @@ $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 
 require 'cpgem'
 require 'main'
-require 'gems'
 require 'clipboard'
 
 Main do
@@ -36,11 +35,8 @@ Specify an gem to search:
 
   def run
 
-    info = Gems.info(params["gem"].value)
-    unless info
-      puts "Gem not found :("
-      exit_warn!
-    else
+    begin
+      info = Cpgem::Gem.info(params["gem"].value)
 
       bundler       = %@gem "#{info["name"]}", "~> #{info["version"]}"@
       bundler_line  = "bundler: #{bundler}"
@@ -66,7 +62,9 @@ Specify an gem to search:
         "#{homepage}"
 
       puts message
-
+    rescue Exception => e
+      puts "Gem not found :("
+      exit_warn!
     end
 
   rescue Exception => err

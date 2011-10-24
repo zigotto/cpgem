@@ -1,7 +1,6 @@
 source "http://rubygems.org"
 
 gem "main", "~> 4.7.6"
-gem "gems", "~> 0.5.0"
 gem "clipboard", "~> 0.9.9"
 gem "httparty", "~> 0.8.1"
 
