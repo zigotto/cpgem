@@ -46,4 +46,31 @@ describe Cpgem::Gem do
 
   end
 
+  describe "#gemfile_line" do
+
+    use_vcr_cassette "search_simplecov", :record => :new_episodes
+
+    let(:info) {
+      Cpgem::Gem.info("simplecov")
+    }
+
+    it "should return line to past in Gemfile" do
+      info.gemfile_line.should == 'gem "simplecov", "~> 0.5.4"'
+    end
+
+    it "should accept group option" do
+      info.gemfile_line(:group => :development).should == 'gem "simplecov", "~> 0.5.4", :group => :development'
+      info.gemfile_line(:group => "development").should == 'gem "simplecov", "~> 0.5.4", :group => :development'
+    end
+
+    it "should accept require option" do
+      info.gemfile_line(:require => :false).should == 'gem "simplecov", "~> 0.5.4", :require => false'
+    end
+
+    it "should return line with all options" do
+      info.gemfile_line(:group => :development, :require => :false).should == 'gem "simplecov", "~> 0.5.4", :group => :development, :require => false'
+    end
+
+  end
+
 end

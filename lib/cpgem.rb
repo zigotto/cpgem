@@ -26,6 +26,14 @@ module Cpgem
       end
     end
 
+    def gemfile_line(options={})
+      line = ""
+      line << "gem \"#{name}\", \"~> #{version}\""
+      line << ", :group => :#{options[:group]}" if options[:group]
+      line << ", :require => #{options[:require]}" if options[:require]
+      line
+    end
+
   end
 
 end
