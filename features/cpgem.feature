@@ -7,12 +7,12 @@ Feature: Search
     When I run "cpgem googl"
     Then the output should contain exactly:
       """
-      bundler: gem "googl", "~> 0.5.0"
+      Gemfile: gem "googl", "~> 0.5.0"
       install: gem install googl
       name: googl
       version: 0.5.0
-      3903 downloads
-      1399 for this version
+      3936 downloads
+      1405 for this version
       homepage: http://github.com/zigotto/googl
 
       """

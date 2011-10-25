@@ -38,6 +38,18 @@ module Cpgem
       Clipboard.copy(line)
     end
 
+    def output_message
+      Clipboard.clear
+      to_clipboard
+      message = %@Gemfile: gem "#{name}", "~> #{version}"
+install: gem install #{name}
+name: #{name}
+version: #{version}
+#{downloads} downloads
+#{version_downloads} for this version
+homepage: #{homepage_uri}@
+    end
+
   end
 
 end

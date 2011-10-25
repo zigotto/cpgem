@@ -37,30 +37,8 @@ Specify an gem to search:
 
     begin
       info = Cpgem::Gem.info(params["gem"].value)
-
-      bundler       = %@gem "#{info.name}", "~> #{info.version}"@
-      bundler_line  = "bundler: #{bundler}"
-      install       = %@install: gem install #{info.name}@
-      homepage      = "homepage: #{info.homepage_uri}"
-      name          = "name: #{info.name}"
-      version       = "version: #{info.version}"
-      downloads     = "#{info.downloads} downloads"
-      version_downloads = "#{info.version_downloads} for this version"
-      homepage      = "homepage: #{info.homepage_uri}"
-
-      unless do_not_copy?
-        Clipboard.copy(bundler)
-      end
-
-      message = \
-        "#{bundler_line}\n" +
-        "#{install}\n" +
-        "#{name}\n" +
-        "#{version}\n" +
-        "#{downloads}\n" +
-        "#{version_downloads}\n" +
-        "#{homepage}"
-
+      message = info.output_message
+      Clipboard.copy(info.gemfile_line) unless do_not_copy?
       puts message
     rescue Exception => e
       puts "Gem not found :("

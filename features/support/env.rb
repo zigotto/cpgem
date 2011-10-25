@@ -12,3 +12,7 @@ require 'cpgem'
 
 require 'rspec/expectations'
 require 'aruba/cucumber'
+
+Before do
+  @aruba_timeout_seconds = 7
+end

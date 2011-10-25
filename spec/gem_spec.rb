@@ -93,4 +93,28 @@ describe Cpgem::Gem do
 
   end
 
+  describe "#output_message" do
+
+    use_vcr_cassette "search_googl", :record => :new_episodes
+    let(:info) { Cpgem::Gem.info("googl") }
+
+    it "should return complete terminal message" do
+      info.output_message.should == %@
+      Gemfile: gem "googl", "~> 0.5.0"
+      install: gem install googl
+      name: googl
+      version: 0.5.0
+      3854 downloads
+      1357 for this version
+      homepage: http://github.com/zigotto/googl
+      @
+    end
+
+    it "should copy gemfile line to clipboard" do
+      info.output_message
+      Clipboard.paste.should == 'gem "googl", "~> 0.5.0"'
+    end
+    
+  end
+
 end
