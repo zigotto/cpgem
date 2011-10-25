@@ -73,4 +73,24 @@ describe Cpgem::Gem do
 
   end
 
+  describe "#to_clipboard" do
+
+    use_vcr_cassette "search_simplecov", :record => :new_episodes
+
+    let(:info) {
+      Cpgem::Gem.info("simplecov")
+    }
+
+    it "should copy gemfile line to clipboard" do
+      info.to_clipboard
+      Clipboard.paste.should == 'gem "simplecov", "~> 0.5.4"'
+    end
+
+    it "should accept customized gemfile line" do
+      info.to_clipboard(info.gemfile_line(:group => :development, :require => :false))
+      Clipboard.paste.should == 'gem "simplecov", "~> 0.5.4", :group => :development, :require => false'
+    end
+
+  end
+
 end

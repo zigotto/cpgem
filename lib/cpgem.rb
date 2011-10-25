@@ -34,6 +34,10 @@ module Cpgem
       line
     end
 
+    def to_clipboard(line=gemfile_line)
+      Clipboard.copy(line)
+    end
+
   end
 
 end
