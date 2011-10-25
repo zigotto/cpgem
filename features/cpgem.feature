@@ -11,8 +11,8 @@ Feature: Search
       install: gem install googl
       name: googl
       version: 0.5.0
-      3854 downloads
-      1357 for this version
+      3903 downloads
+      1399 for this version
       homepage: http://github.com/zigotto/googl
 
       """

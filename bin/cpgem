@@ -38,15 +38,15 @@ Specify an gem to search:
     begin
       info = Cpgem::Gem.info(params["gem"].value)
 
-      bundler       = %@gem "#{info["name"]}", "~> #{info["version"]}"@
+      bundler       = %@gem "#{info.name}", "~> #{info.version}"@
       bundler_line  = "bundler: #{bundler}"
-      install       = %@install: gem install #{info["name"]}@
-      homepage      = "homepage: #{info["homepage_uri"]}"
-      name          = "name: #{info["name"]}"
-      version       = "version: #{info["version"]}"
-      downloads     = "#{info["downloads"]} downloads"
-      version_downloads = "#{info["version_downloads"]} for this version"
-      homepage      = "homepage: #{info["homepage_uri"]}"
+      install       = %@install: gem install #{info.name}@
+      homepage      = "homepage: #{info.homepage_uri}"
+      name          = "name: #{info.name}"
+      version       = "version: #{info.version}"
+      downloads     = "#{info.downloads} downloads"
+      version_downloads = "#{info.version_downloads} for this version"
+      homepage      = "homepage: #{info.homepage_uri}"
 
       unless do_not_copy?
         Clipboard.copy(bundler)
