@@ -1,34 +1,55 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
-    method: :get
-    uri: https://rubygems.org:443/api/v1/gems/simplecov.json
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/simplecov.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      date: 
-      - Tue, 25 Oct 2011 02:00:08 GMT
-      server: 
-      - Apache/2.2.3 (Red Hat) mod_ssl/2.2.3 OpenSSL/0.9.8e-fips-rhel5 Phusion_Passenger/3.0.0
-      x-powered-by: 
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.0
-      etag: 
-      - "\"649cb7e04a0b0efb9800d0684580c9c5\""
-      x-ua-compatible: 
-      - IE=Edge,chrome=1
-      x-runtime: 
-      - "0.959326"
-      cache-control: 
-      - max-age=0, private, must-revalidate
-      status: 
-      - "200"
-      transfer-encoding: 
-      - chunked
-      content-type: 
+    headers:
+      server:
+      - nginx
+      date:
+      - Tue, 05 Feb 2013 22:55:03 GMT
+      content-type:
       - application/json; charset=utf-8
-    body: "{\"dependencies\":{\"runtime\":[{\"name\":\"multi_json\",\"requirements\":\"~> 1.0.3\"},{\"name\":\"simplecov-html\",\"requirements\":\"~> 0.5.3\"}],\"development\":[{\"name\":\"aruba\",\"requirements\":\"~> 0.4\"},{\"name\":\"capybara\",\"requirements\":\"~> 1.0\"},{\"name\":\"cucumber\",\"requirements\":\"~> 1.0.5\"},{\"name\":\"rake\",\"requirements\":\"~> 0.8\"},{\"name\":\"rspec\",\"requirements\":\"~> 2.6\"},{\"name\":\"shoulda\",\"requirements\":\"~> 2.10\"}]},\"name\":\"simplecov\",\"downloads\":97008,\"info\":\"Code coverage for Ruby 1.9 with a powerful configuration library and automatic merging of coverage across test suites\",\"version_downloads\":6260,\"version\":\"0.5.4\",\"homepage_uri\":\"http://github.com/colszowka/simplecov\",\"bug_tracker_uri\":null,\"source_code_uri\":null,\"gem_uri\":\"http://rubygems.org/gems/simplecov-0.5.4.gem\",\"project_uri\":\"http://rubygems.org/gems/simplecov\",\"authors\":\"Christoph Olszowka\",\"mailing_list_uri\":null,\"documentation_uri\":null,\"wiki_uri\":null}"
-    http_version: "1.1"
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      status:
+      - 200 OK
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      etag:
+      - ! '"e4c838fb9d0a8eb3c20785b423ae4866"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - fe7e125c76cde3569e7e8f3f0adad7ef
+      x-runtime:
+      - '0.028264'
+      x-rack-cache:
+      - miss
+    body:
+      encoding: US-ASCII
+      string: ! '{"name":"simplecov","downloads":1215706,"version":"0.7.1","version_downloads":347448,"platform":"ruby","authors":"Christoph
+        Olszowka","info":"Code coverage for Ruby 1.9 with a powerful configuration
+        library and automatic merging of coverage across test suites","project_uri":"http://rubygems.org/gems/simplecov","gem_uri":"http://rubygems.org/gems/simplecov-0.7.1.gem","homepage_uri":"http://github.com/colszowka/simplecov","wiki_uri":"","documentation_uri":"http://rubydoc.info/gems/simplecov/frames","mailing_list_uri":"https://groups.google.com/forum/#!forum/simplecov","source_code_uri":"https://github.com/colszowka/simplecov/","bug_tracker_uri":"https://github.com/colszowka/simplecov/issues","dependencies":{"development":[{"name":"appraisal","requirements":">=
+        0"},{"name":"aruba","requirements":">= 0"},{"name":"capybara","requirements":">=
+        0"},{"name":"cucumber","requirements":">= 1.1.4"},{"name":"rake","requirements":">=
+        0"},{"name":"rspec","requirements":">= 0"},{"name":"shoulda","requirements":">=
+        0"}],"runtime":[{"name":"multi_json","requirements":"~> 1.0"},{"name":"simplecov-html","requirements":"~>
+        0.7.1"}]}}'
+    http_version: '1.1'
+  recorded_at: Tue, 05 Feb 2013 22:55:03 GMT
+recorded_with: VCR 2.4.0

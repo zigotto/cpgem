@@ -1,34 +1,53 @@
---- 
-- !ruby/struct:VCR::HTTPInteraction 
-  request: !ruby/struct:VCR::Request 
-    method: :get
-    uri: https://rubygems.org:443/api/v1/gems/googl.json
-    body: 
-    headers: 
-  response: !ruby/struct:VCR::Response 
-    status: !ruby/struct:VCR::ResponseStatus 
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/googl.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      date: 
-      - Mon, 24 Oct 2011 01:12:28 GMT
-      server: 
-      - Apache/2.2.3 (Red Hat) mod_ssl/2.2.3 OpenSSL/0.9.8e-fips-rhel5 Phusion_Passenger/3.0.0
-      x-powered-by: 
-      - Phusion Passenger (mod_rails/mod_rack) 3.0.0
-      etag: 
-      - "\"01e5664e120f570e07952137137ce921\""
-      x-ua-compatible: 
-      - IE=Edge,chrome=1
-      x-runtime: 
-      - "0.020625"
-      cache-control: 
-      - max-age=0, private, must-revalidate
-      status: 
-      - "200"
-      transfer-encoding: 
-      - chunked
-      content-type: 
+    headers:
+      server:
+      - nginx
+      date:
+      - Tue, 05 Feb 2013 22:55:01 GMT
+      content-type:
       - application/json; charset=utf-8
-    body: "{\"dependencies\":{\"runtime\":[{\"name\":\"httparty\",\"requirements\":\">= 0.6.1\"},{\"name\":\"json\",\"requirements\":\">= 1.4.6\"}],\"development\":[{\"name\":\"bundler\",\"requirements\":\"~> 1.0.0\"},{\"name\":\"jeweler\",\"requirements\":\"~> 1.5.2\"},{\"name\":\"rcov\",\"requirements\":\">= 0\"},{\"name\":\"rspec\",\"requirements\":\"~> 2.3.0\"},{\"name\":\"webmock\",\"requirements\":\"~> 1.6.2\"}]},\"name\":\"googl\",\"downloads\":3854,\"info\":\"Small library for Google URL Shortener API\",\"version_downloads\":1357,\"version\":\"0.5.0\",\"homepage_uri\":\"http://github.com/zigotto/googl\",\"bug_tracker_uri\":\"https://github.com/zigotto/googl/issues\",\"source_code_uri\":\"https://github.com/zigotto/googl\",\"gem_uri\":\"http://rubygems.org/gems/googl-0.5.0.gem\",\"project_uri\":\"http://rubygems.org/gems/googl\",\"authors\":\"Jesus Lopes\",\"mailing_list_uri\":\"\",\"documentation_uri\":\"\",\"wiki_uri\":\"\"}"
-    http_version: "1.1"
+      transfer-encoding:
+      - chunked
+      connection:
+      - close
+      vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      status:
+      - 200 OK
+      x-ua-compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      etag:
+      - ! '"032c383fe6aaeefdd74956a0d9941e3f"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-request-id:
+      - 0e2b1b13b9a63212f1b8df5f8b48bd5e
+      x-runtime:
+      - '0.138667'
+      x-rack-cache:
+      - miss
+    body:
+      encoding: US-ASCII
+      string: ! '{"name":"googl","downloads":16891,"version":"0.6.3","version_downloads":254,"platform":"ruby","authors":"Jesus
+        Lopes","info":"Small library for Google URL Shortener API","project_uri":"http://rubygems.org/gems/googl","gem_uri":"http://rubygems.org/gems/googl-0.6.3.gem","homepage_uri":"http://github.com/zigotto/googl","wiki_uri":"","documentation_uri":"","mailing_list_uri":"","source_code_uri":"https://github.com/zigotto/googl","bug_tracker_uri":"https://github.com/zigotto/googl/issues","dependencies":{"development":[{"name":"bundler","requirements":"~>
+        1.2.3"},{"name":"jeweler","requirements":"~> 1.8.3"},{"name":"rcov","requirements":">=
+        0"},{"name":"rspec","requirements":"~> 2.10.0"},{"name":"webmock","requirements":"~>
+        1.8.6"}],"runtime":[{"name":"httparty","requirements":"~> 0.10.0"},{"name":"json","requirements":">=
+        1.4.6"}]}}'
+    http_version: '1.1'
+  recorded_at: Tue, 05 Feb 2013 22:55:01 GMT
+recorded_with: VCR 2.4.0
