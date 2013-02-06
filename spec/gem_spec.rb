@@ -7,7 +7,7 @@ describe Cpgem::Gem do
     use_vcr_cassette "invalid_gem", :record => :new_episodes
 
     it "should raise error" do
-      expect { Cpgem::Gem.info("xpto_gem_not_found") }.to raise_error(/This rubygem could not be found./)
+      expect { Cpgem::Gem.info("xpto_gem_not_found") }.to raise_error(/Not Found/)
     end
 
   end
@@ -20,13 +20,14 @@ describe Cpgem::Gem do
       Cpgem::Gem.info("googl")
     }
 
-    it { info.dependencies["runtime"].should == [{"name"=>"httparty", "requirements"=>">= 0.6.1"}, {"name"=>"json", "requirements"=>">= 1.4.6"}] }
+    it { info.dependencies["runtime"].should == [{"name"=>"httparty", "requirements"=>"~> 0.10.0"}, {"name"=>"json", "requirements"=>">= 1.4.6"}] }
+
     it { info.dependencies["development"].should == [
-      {"name"=>"bundler", "requirements"=>"~> 1.0.0"},
-      {"name"=>"jeweler", "requirements"=>"~> 1.5.2"},
+      {"name"=>"bundler", "requirements"=>"~> 1.2.3"},
+      {"name"=>"jeweler", "requirements"=>"~> 1.8.3"},
       {"name"=>"rcov", "requirements"=>">= 0"},
-      {"name"=>"rspec", "requirements"=>"~> 2.3.0"},
-      {"name"=>"webmock", "requirements"=>"~> 1.6.2"}
+      {"name"=>"rspec", "requirements"=>"~> 2.10.0"},
+      {"name"=>"webmock", "requirements"=>"~> 1.8.6"}
     ]}
 
     it { info.name.should == "googl" }
@@ -112,7 +113,7 @@ describe Cpgem::Gem do
 
     it "should copy gemfile line to clipboard" do
       info.output_message
-      Clipboard.paste.should == 'gem "googl", "~> 0.5.0"'
+      Clipboard.paste.should == 'gem "googl", "~> 0.6.3"'
     end
     
   end

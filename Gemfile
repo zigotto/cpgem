@@ -3,6 +3,7 @@ source "http://rubygems.org"
 gem "main", "~> 5.1.1"
 gem "clipboard", "~> 1.0.1"
 gem "httparty", "~> 0.10.2"
+gem "crack", "~> 0.3.2"
 
 group :development do
   gem "aruba", "~> 0.5.1"

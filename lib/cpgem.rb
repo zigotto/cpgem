@@ -1,16 +1,22 @@
 require "httparty"
+require "crack/json"
 
 module Cpgem
 
   class Request
     include HTTParty
+    parser(
+      Proc.new do |body, format|
+        Crack::JSON.parse(body)
+      end
+    )
   end
 
   class Gem
 
     attr_accessor :dependencies, :name, :downloads, :info, :version_downloads, :version,
       :homepage_uri, :bug_tracker_uri, :source_code_uri, :gem_uri, :project_uri, :authors,
-      :mailing_list_uri, :documentation_uri, :wiki_uri
+      :mailing_list_uri, :documentation_uri, :wiki_uri, :platform
 
     def initialize(response)
       response.each {|name, value| send("#{name}=", value)}
