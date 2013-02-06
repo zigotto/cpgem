@@ -31,14 +31,14 @@ describe Cpgem::Gem do
     ]}
 
     it { info.name.should == "googl" }
-    it { info.downloads.should == 3854 }
+    it { info.downloads.should == 16891 }
     it { info.info.should == "Small library for Google URL Shortener API" }
-    it { info.version_downloads.should == 1357 }
-    it { info.version.should == "0.5.0" }
+    it { info.version_downloads.should == 254 }
+    it { info.version.should == "0.6.3" }
     it { info.homepage_uri.should == "http://github.com/zigotto/googl" }
     it { info.bug_tracker_uri.should == "https://github.com/zigotto/googl/issues" }
     it { info.source_code_uri.should == "https://github.com/zigotto/googl" }
-    it { info.gem_uri.should == "http://rubygems.org/gems/googl-0.5.0.gem" }
+    it { info.gem_uri.should == "http://rubygems.org/gems/googl-0.6.3.gem" }
     it { info.project_uri.should == "http://rubygems.org/gems/googl" }
     it { info.authors.should == "Jesus Lopes" }
     it { info.mailing_list_uri.should == "" }
@@ -56,20 +56,20 @@ describe Cpgem::Gem do
     }
 
     it "should return line to past in Gemfile" do
-      info.gemfile_line.should == 'gem "simplecov", "~> 0.5.4"'
+      info.gemfile_line.should == 'gem "simplecov", "~> 0.7.1"'
     end
 
     it "should accept group option" do
-      info.gemfile_line(:group => :development).should == 'gem "simplecov", "~> 0.5.4", :group => :development'
-      info.gemfile_line(:group => "development").should == 'gem "simplecov", "~> 0.5.4", :group => :development'
+      info.gemfile_line(:group => :development).should == 'gem "simplecov", "~> 0.7.1", :group => :development'
+      info.gemfile_line(:group => "development").should == 'gem "simplecov", "~> 0.7.1", :group => :development'
     end
 
     it "should accept require option" do
-      info.gemfile_line(:require => :false).should == 'gem "simplecov", "~> 0.5.4", :require => false'
+      info.gemfile_line(:require => :false).should == 'gem "simplecov", "~> 0.7.1", :require => false'
     end
 
     it "should return line with all options" do
-      info.gemfile_line(:group => :development, :require => :false).should == 'gem "simplecov", "~> 0.5.4", :group => :development, :require => false'
+      info.gemfile_line(:group => :development, :require => :false).should == 'gem "simplecov", "~> 0.7.1", :group => :development, :require => false'
     end
 
   end
@@ -84,12 +84,12 @@ describe Cpgem::Gem do
 
     it "should copy gemfile line to clipboard" do
       info.to_clipboard
-      Clipboard.paste.should == 'gem "simplecov", "~> 0.5.4"'
+      Clipboard.paste.should == 'gem "simplecov", "~> 0.7.1"'
     end
 
     it "should accept customized gemfile line" do
       info.to_clipboard(info.gemfile_line(:group => :development, :require => :false))
-      Clipboard.paste.should == 'gem "simplecov", "~> 0.5.4", :group => :development, :require => false'
+      Clipboard.paste.should == 'gem "simplecov", "~> 0.7.1", :group => :development, :require => false'
     end
 
   end
@@ -101,14 +101,13 @@ describe Cpgem::Gem do
 
     it "should return complete terminal message" do
       info.output_message.should == %@
-      Gemfile: gem "googl", "~> 0.5.0"
-      install: gem install googl
-      name: googl
-      version: 0.5.0
-      3854 downloads
-      1357 for this version
-      homepage: http://github.com/zigotto/googl
-      @
+Gemfile: gem "googl", "~> 0.6.3"
+install: gem install googl
+name: googl
+version: 0.6.3
+16891 downloads
+254 for this version
+homepage: http://github.com/zigotto/googl@
     end
 
     it "should copy gemfile line to clipboard" do
