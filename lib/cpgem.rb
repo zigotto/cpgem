@@ -47,8 +47,7 @@ module Cpgem
     def output_message
       Clipboard.clear
       to_clipboard
-      message = %@
-Gemfile: gem "#{name}", "~> #{version}"
+      message = %@Gemfile: gem "#{name}", "~> #{version}"
 install: gem install #{name}
 name: #{name}
 version: #{version}

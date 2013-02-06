@@ -100,8 +100,7 @@ describe Cpgem::Gem do
     let(:info) { Cpgem::Gem.info("googl") }
 
     it "should return complete terminal message" do
-      info.output_message.should == %@
-Gemfile: gem "googl", "~> 0.6.3"
+      info.output_message.should == %@Gemfile: gem "googl", "~> 0.6.3"
 install: gem install googl
 name: googl
 version: 0.6.3
